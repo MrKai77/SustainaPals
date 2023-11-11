@@ -8,14 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    // Default tab is the home tab
+    @State private var currentTab = 1
+
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(named: "Background")
+    }
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection: $currentTab) {
+            ShopView()
+                .tabItem {
+                    Label(
+                        "Shop",
+                        systemImage: "handbag"
+                    )
+                }
+                .tag(0)
+
+            AdventureView()
+                .tabItem {
+                    Label(
+                        "Home",
+                        systemImage: "point.topleft.down.to.point.bottomright.filled.curvepath"
+                    )
+                }
+                .tag(1)
+
+            ProfileView()
+                .tabItem {
+                    Label(
+                        "Profile",
+                        systemImage: "person.crop.circle"
+                    )
+                }
+                .tag(2)
         }
-        .padding()
     }
 }
 
