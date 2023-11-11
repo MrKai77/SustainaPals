@@ -14,6 +14,7 @@
 		A8A548862B001BE3001E87EE /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548852B001BE3001E87EE /* AdventureView.swift */; };
 		A8A548882B001C60001E87EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548872B001C60001E87EE /* ProfileView.swift */; };
 		A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548892B001CB9001E87EE /* ShopView.swift */; };
+		A8A5488E2B00212F001E87EE /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5488D2B00212F001E87EE /* QuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A8A548852B001BE3001E87EE /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		A8A548872B001C60001E87EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A8A548892B001CB9001E87EE /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		A8A5488D2B00212F001E87EE /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +61,8 @@
 			children = (
 				A8A548772B000722001E87EE /* HackTheChange2023App.swift */,
 				A8A548792B000722001E87EE /* ContentView.swift */,
-				A8A548892B001CB9001E87EE /* ShopView.swift */,
-				A8A548852B001BE3001E87EE /* AdventureView.swift */,
-				A8A548872B001C60001E87EE /* ProfileView.swift */,
+				A8A5488B2B002110001E87EE /* Tabs */,
+				A8A5488C2B00211B001E87EE /* Other Views */,
 				A8A5487B2B000723001E87EE /* Assets.xcassets */,
 				A8A5487D2B000723001E87EE /* Preview Content */,
 			);
@@ -74,6 +75,24 @@
 				A8A5487E2B000723001E87EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A8A5488B2B002110001E87EE /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				A8A548892B001CB9001E87EE /* ShopView.swift */,
+				A8A548852B001BE3001E87EE /* AdventureView.swift */,
+				A8A548872B001C60001E87EE /* ProfileView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		A8A5488C2B00211B001E87EE /* Other Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8A5488D2B00212F001E87EE /* QuestionView.swift */,
+			);
+			path = "Other Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +169,7 @@
 				A8A5487A2B000722001E87EE /* ContentView.swift in Sources */,
 				A8A548782B000722001E87EE /* HackTheChange2023App.swift in Sources */,
 				A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */,
+				A8A5488E2B00212F001E87EE /* QuestionView.swift in Sources */,
 				A8A548862B001BE3001E87EE /* AdventureView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
