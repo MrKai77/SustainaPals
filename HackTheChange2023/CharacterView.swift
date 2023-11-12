@@ -8,68 +8,127 @@
 import SwiftUI
 
 struct CharacterView: View {
-    @AppStorage("Eyes") var eyes: Eyes = .eyes1
-    @AppStorage("Nose") var nose: Nose = .nose1
-    @AppStorage("Mouth") var mouth: Mouth = .mouth1
-    @AppStorage("Accessory") var accessory: Accessory = .none
-    @AppStorage("Shirt") var shirt: Shirt = .shirt2
-    @AppStorage("Hair") var hair: Hair = .hair2
+    @AppStorage("Eyes") var myEyes: Eyes = .eyes1
+    @AppStorage("Nose") var myNose: Nose = .nose1
+    @AppStorage("Mouth") var myMouth: Mouth = .mouth1
+    @AppStorage("Accessory") var myAccessory: Accessory = .none
+    @AppStorage("Shirt") var myShirt: Shirt = .shirt2
+    @AppStorage("Hair") var myHair: Hair = .hair2
 
-    @AppStorage("BodyColor") var bodyColor: Color = Color(.yellow)
-    @AppStorage("AccesoryColor") var accessoryColor: Color = Color(.pink)
-    @AppStorage("HairColor") var hairColor: Color = Color(.brown)
-    @AppStorage("ShirtColor") var shirtColor: Color = Color(.blue)
+    @AppStorage("BodyColor") var myBodyColor: Color = Color(.yellow)
+    @AppStorage("AccesoryColor") var myAccessoryColor: Color = Color(.pink)
+    @AppStorage("HairColor") var myHairColor: Color = Color(.brown)
+    @AppStorage("ShirtColor") var myShirtColor: Color = Color(.blue)
+
+    @State var eyes: Eyes
+    @State var nose: Nose
+    @State var mouth: Mouth
+    @State var accessory: Accessory
+    @State var shirt: Shirt
+    @State var hair: Hair
+
+    @State var bodyColor: Color
+    @State var accessoryColor: Color
+    @State var hairColor: Color
+    @State var shirtColor: Color
+
+    let isMe: Bool
+
+    init() {
+        self.eyes = .eyes1
+        self.nose = .nose1
+        self.mouth = .mouth1
+        self.accessory = .accessory1
+        self.shirt = .shirt1
+        self.hair = .hair1
+        self.bodyColor = .accent
+        self.accessoryColor = .accent
+        self.hairColor = .accent
+        self.shirtColor = .accent
+        self.isMe = true
+    }
+
+    init(
+        eyes: Eyes,
+        nose: Nose,
+        mouth: Mouth,
+        accessory: Accessory,
+        shirt: Shirt,
+        hair: Hair,
+        bodyColor: Color = Color(.yellow),
+        accessoryColor: Color = Color(.pink),
+        hairColor: Color = Color(.brown),
+        shirtColor: Color = Color(.blue)
+    ) {
+        self.eyes = eyes
+        self.nose = nose
+        self.mouth = mouth
+        self.accessory = accessory
+        self.shirt = shirt
+        self.hair = hair
+        self.bodyColor = bodyColor
+        self.accessoryColor = accessoryColor
+        self.hairColor = hairColor
+        self.shirtColor = shirtColor
+        self.isMe = false
+    }
+
 
     var body: some View {
         ZStack {
             Image(.body)
-                .foregroundStyle(bodyColor)
+                .foregroundStyle(self.isMe ? myBodyColor : bodyColor)
                 .mask(Image(.body))
 
             Image(.bodyShadow)
-                .background(bodyColor)
+                .background(self.isMe ? myBodyColor : bodyColor)
                 .foregroundStyle(.black.opacity(0.2))
                 .mask(Image(.bodyShadow))
 
             Image(.head)
-                .foregroundStyle(bodyColor)
+                .foregroundStyle(self.isMe ? myBodyColor : bodyColor)
 
-            Image(hair.imageName)
-                .foregroundStyle(hairColor)
+            Image(self.isMe ? myHair.imageName : hair.imageName)
+                .foregroundStyle(self.isMe ? myHairColor: hairColor)
 
-            Image(hair.accentImageName ?? "")
-                .background(hairColor)
+            Image(self.isMe ? myHair.accentImageName ?? "" : hair.accentImageName ?? "")
+                .background(self.isMe ? myHairColor : hairColor)
                 .foregroundStyle(.black.opacity(0.4))
-                .mask(Image(hair.accentImageName ?? ""))
+                .mask(Image(self.isMe ? myHair.accentImageName ?? "" : hair.accentImageName ?? ""))
 
             Image(.ear)
-                .foregroundStyle(bodyColor)
+                .foregroundStyle(self.isMe ? myBodyColor : bodyColor)
 
             Image(.earShadow)
-                .background(bodyColor)
+                .background(self.isMe ? myBodyColor : bodyColor)
                 .foregroundStyle(.black.opacity(0.2))
                 .mask(Image(.earShadow))
 
-            Image(nose.imageName)
-                .background(bodyColor)
+            Image(self.isMe ? myNose.imageName : nose.imageName)
+                .background(self.isMe ? myBodyColor : bodyColor)
                 .foregroundStyle(.black.opacity(0.6))
-                .mask(Image(nose.imageName))
+                .mask(Image(self.isMe ? myNose.imageName : nose.imageName))
 
-            Image(mouth.imageName)
-                .background(bodyColor)
+            Image(self.isMe ? myMouth.imageName : mouth.imageName)
+                .background(self.isMe ? myBodyColor : bodyColor)
                 .foregroundStyle(.black.opacity(0.6))
-                .mask(Image(mouth.imageName))
+                .mask(Image(self.isMe ? myMouth.imageName : mouth.imageName))
 
-            Image(eyes.imageName)
-                .background(bodyColor)
+            Image(self.isMe ? myEyes.imageName : eyes.imageName)
+                .background(self.isMe ? myBodyColor : bodyColor)
                 .foregroundStyle(.black.opacity(0.6))
-                .mask(Image(eyes.imageName))
+                .mask(Image(self.isMe ? myEyes.imageName : eyes.imageName))
 
-            Image(shirt.imageName)
-                .foregroundStyle(shirtColor)
+            Image(self.isMe ? myShirt.imageName : shirt.imageName)
+                .foregroundStyle(self.isMe ? myShirtColor : shirtColor)
 
-            Image(accessory.imageName)
-                .foregroundStyle(accessoryColor)
+            Image(self.isMe ? myAccessory.imageName : accessory.imageName)
+                .foregroundStyle(self.isMe ? myAccessoryColor : accessoryColor)
+
+            Image(self.isMe ? myAccessory.accentImageName ?? "" : accessory.accentImageName ?? "")
+                .background(self.isMe ? myAccessoryColor : accessoryColor)
+                .foregroundStyle(.black.opacity(0.5))
+                .mask(Image(self.isMe ? myAccessory.accentImageName ?? "" : accessory.accentImageName ?? ""))
         }
     }
 }
@@ -79,9 +138,17 @@ enum Accessory: String, Identifiable, CaseIterable {
 
     case none = ""
     case accessory1 = "Accessory 1"
+    case accessory2 = "Accessory 2"
 
     var imageName: String {
         self.rawValue
+    }
+
+    var accentImageName: String? {
+        if self == .accessory2 {
+            return "Accessory 2 Lenses"
+        }
+        return nil
     }
 }
 
