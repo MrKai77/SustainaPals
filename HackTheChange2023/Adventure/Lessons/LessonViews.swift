@@ -14,7 +14,6 @@ struct Lesson1View: View {
 
     @State var question1Correct: Bool = false
     @State var pagesLeft: Int = 4
-
     @State var pages: [any Page] = []
 
     var body: some View {
@@ -48,36 +47,7 @@ struct Lesson1View: View {
             }
         }
         .onAppear {
-            var pages: [any Page] = []
-
-            // Load the JSON file data
-            guard let dataFromString = lesson1.data(using: .utf8, allowLossyConversion: false),
-                  let json = try? JSON(data: dataFromString) else { print("ERROR"); return }
-
-            for i in 1...json.count {
-                let data = json[String(i)]
-
-                if data["type"] == "lesson" {
-                    pages.append(
-                        Lesson(
-                            title: data["title"].stringValue,
-                            description: data["description"].stringValue,
-                            imageName: data["imageName"].stringValue
-                        )
-                    )
-                }
-
-                if data["type"] == "booleanQuestion" {
-                    pages.append(
-                        BooleanQuestion(
-                            title: data["title"].stringValue,
-                            answer: data["answer"].stringValue.lowercased() == "yes" ? .yes : .no
-                        )
-                    )
-                }
-            }
-
-            self.pages = pages
+            self.pages = parseJSON(file: lesson1) ?? []
         }
     }
 }
@@ -273,4 +243,37 @@ fileprivate func calculatePercentage(answers: [Bool]) -> Double {
     }
 
     return Double(correct) / Double(count)
+}
+
+fileprivate func parseJSON(file: String) -> [any Page]? {
+    var pages: [any Page] = []
+
+    // Load the JSON file data
+    guard let dataFromString = lesson1.data(using: .utf8, allowLossyConversion: false),
+          let json = try? JSON(data: dataFromString) else { return nil }
+
+    for i in 1...json.count {
+        let data = json[String(i)]
+
+        if data["type"] == "lesson" {
+            pages.append(
+                Lesson(
+                    title: data["title"].stringValue,
+                    description: data["description"].stringValue,
+                    imageName: data["imageName"].stringValue
+                )
+            )
+        }
+
+        if data["type"] == "booleanQuestion" {
+            pages.append(
+                BooleanQuestion(
+                    title: data["title"].stringValue,
+                    answer: data["answer"].stringValue.lowercased() == "yes" ? .yes : .no
+                )
+            )
+        }
+    }
+
+    return pages
 }
