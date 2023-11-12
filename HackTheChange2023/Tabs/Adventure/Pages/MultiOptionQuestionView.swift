@@ -34,6 +34,12 @@ struct MultiOptionQuestionView: View {
             VStack {
                 Spacer()
 
+                CharacterView()
+                    .scaleEffect(0.2)
+                    .frame(width: 100, height: 100)
+
+                Spacer()
+
                 Text(self.question)
                     .font(.title)
                     .multilineTextAlignment(.center)
@@ -110,9 +116,9 @@ struct MultiOptionQuestionView: View {
                 .overlay {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
-                            .strokeBorder(self.wasCorrect ? Color(.sustainableBrown) : Color(.noRed), lineWidth: 4)
+                            .strokeBorder(self.wasCorrect ? Color(.sustainableBrown) : Color(.sustainableRed), lineWidth: 4)
                         RoundedRectangle(cornerRadius: 25)
-                            .foregroundStyle(self.wasCorrect ? Color(.sustainableBrown) : Color(.noRed))
+                            .foregroundStyle(self.wasCorrect ? Color(.sustainableBrown) : Color(.sustainableRed))
                             .opacity(0.2)
                     }
                 }

@@ -133,9 +133,9 @@ struct BooleanQuestionView: View {
                 .overlay {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
-                            .strokeBorder(self.wasCorrect ? Color(.sustainableBrown) : Color(.noRed), lineWidth: 4)
+                            .strokeBorder(self.wasCorrect ? Color(.sustainableBrown) : Color(.sustainableRed), lineWidth: 4)
                         RoundedRectangle(cornerRadius: 25)
-                            .foregroundStyle(self.wasCorrect ? Color(.sustainableBrown) : Color(.noRed))
+                            .foregroundStyle(self.wasCorrect ? Color(.sustainableBrown) : Color(.sustainableRed))
                             .opacity(0.2)
                     }
                 }
@@ -171,7 +171,7 @@ enum BooleanOption: String, Identifiable {
     var color: Color {
         switch self {
         case .yes: Color(.sustainableBrown)
-        case .no: Color(.noRed)
+        case .no: Color(.sustainableRed)
         }
     }
 }

@@ -57,7 +57,7 @@ struct LeaderboardView: View {
                             Text("Eric")
                             Spacer()
                             Image(systemName: "chevron.down")
-                                .foregroundStyle(.noRed)
+                                .foregroundStyle(.sustainableRed)
                         }
                         .font(.largeTitle)
                         .fontWeight(.semibold)
@@ -82,7 +82,7 @@ struct LeaderboardView: View {
                             Text("Adly")
                             Spacer()
                             Image(systemName: "chevron.down")
-                                .foregroundStyle(.noRed)
+                                .foregroundStyle(.sustainableRed)
                         }
                         .font(.largeTitle)
                         .fontWeight(.semibold)
