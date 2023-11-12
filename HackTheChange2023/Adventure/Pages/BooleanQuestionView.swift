@@ -155,7 +155,7 @@ struct BooleanQuestionView: View {
     }
 }
 
-enum BooleanOption: String, Identifiable {
+enum BooleanOption: String, Identifiable, Codable {
     var id: Self { self }
 
     case yes = "Yes"

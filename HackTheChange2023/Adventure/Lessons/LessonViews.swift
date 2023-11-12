@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyJSON
 
 struct Lesson1View: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
@@ -14,39 +15,69 @@ struct Lesson1View: View {
     @State var question1Correct: Bool = false
     @State var pagesLeft: Int = 4
 
+    @State var pages: [any Page] = []
+
     var body: some View {
         ZStack {
             PointsView(self.question1Correct ? 100 : 0)
-            BooleanQuestionView(
-                "Can recycling turn old soda cans into a bicycle?",
-                .yes,
-                $question1Correct,
-                $pagesLeft
-            )
-            LessonView(
-                "Recycling",
-                "Recycling is like giving our old stuff a chance to be born again as something fresh and useful. It's a way of being kind to our planet by using things in a smart way and not making too much waste. So, in a nutshell, recycling is like a magical process that turns old things into brand new things!",
-                Image(.recycling),
-                $pagesLeft
-            )
-            LessonView(
-                "Recycling",
-                "When we recycle, we collect these used items and send them to a special place called a recycling center. There, they sort and clean the materials. Then, these materials are turned into new things. For example, an old soda can might become a brand new can or even a bicycle!",
-                Image(.recycling),
-                $pagesLeft
-            )
-            LessonView(
-                "Recycling",
-                "Imagine you have a toy made of building blocks. Now, instead of throwing those blocks away when you're done playing, you decide to take them apart and use them to build a completely new toy. That's a bit like what recycling does, but with things we use every day, like paper, plastic, and metal.",
-                Image(.recycling),
-                $pagesLeft
-            )
+
+            ForEach(self.pages.reversed(), id: \.id) { page in
+                if page is Lesson {
+                    LessonView(
+                        (page as! Lesson).title,
+                        (page as! Lesson).description,
+                        Image((page as! Lesson).imageName),
+                        $pagesLeft
+                    )
+                }
+
+                if page is BooleanQuestion {
+                    BooleanQuestionView(
+                        (page as! BooleanQuestion).title,
+                        (page as! BooleanQuestion).answer,
+                        $question1Correct,
+                        $pagesLeft
+                    )
+                }
+            }
         }
         .onChange(of: self.pagesLeft) {
             if self.pagesLeft == 0 && question1Correct {
                 self.userCompleted = max(1, self.userCompleted)
                 self.leafCoins += 100
             }
+        }
+        .onAppear {
+            var pages: [any Page] = []
+
+            // Load the JSON file data
+            guard let dataFromString = lesson1.data(using: .utf8, allowLossyConversion: false),
+                  let json = try? JSON(data: dataFromString) else { print("ERROR"); return }
+
+            for i in 1...json.count {
+                let data = json[String(i)]
+
+                if data["type"] == "lesson" {
+                    pages.append(
+                        Lesson(
+                            title: data["title"].stringValue,
+                            description: data["description"].stringValue,
+                            imageName: data["imageName"].stringValue
+                        )
+                    )
+                }
+
+                if data["type"] == "booleanQuestion" {
+                    pages.append(
+                        BooleanQuestion(
+                            title: data["title"].stringValue,
+                            answer: data["answer"].stringValue.lowercased() == "yes" ? .yes : .no
+                        )
+                    )
+                }
+            }
+
+            self.pages = pages
         }
     }
 }

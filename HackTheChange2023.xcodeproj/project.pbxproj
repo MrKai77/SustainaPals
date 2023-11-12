@@ -21,6 +21,9 @@
 		A8A548992B0087A0001E87EE /* MultiOptionQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */; };
 		A8A5489C2B00BA7A001E87EE /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5489B2B00BA7A001E87EE /* LeaderboardView.swift */; };
 		A8A5489E2B00BE20001E87EE /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5489D2B00BE20001E87EE /* CharacterView.swift */; };
+		A8A548A02B013EE9001E87EE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5489F2B013EE9001E87EE /* Page.swift */; };
+		A8A548A52B01462A001E87EE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A8A548A42B01462A001E87EE /* SwiftyJSON */; };
+		A8A548A72B01468F001E87EE /* Lesson1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548A62B01468F001E87EE /* Lesson1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,8 @@
 		A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiOptionQuestionView.swift; sourceTree = "<group>"; };
 		A8A5489B2B00BA7A001E87EE /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		A8A5489D2B00BE20001E87EE /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		A8A5489F2B013EE9001E87EE /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		A8A548A62B01468F001E87EE /* Lesson1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A548A52B01462A001E87EE /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,7 @@
 				A8A548772B000722001E87EE /* HackTheChange2023App.swift */,
 				A8A548792B000722001E87EE /* ContentView.swift */,
 				A8A5489D2B00BE20001E87EE /* CharacterView.swift */,
+				A8A5489A2B00B851001E87EE /* Adventure */,
 				A8A5488B2B002110001E87EE /* Tabs */,
 				A8A5487B2B000723001E87EE /* Assets.xcassets */,
 				A8A5487D2B000723001E87EE /* Preview Content */,
@@ -93,10 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				A8A548852B001BE3001E87EE /* AdventureView.swift */,
-				A8A5489A2B00B851001E87EE /* Adventure */,
 				A8A548892B001CB9001E87EE /* ShopView.swift */,
 				A8A5489B2B00BA7A001E87EE /* LeaderboardView.swift */,
 				A8A548872B001C60001E87EE /* ProfileView.swift */,
+				A8A548A62B01468F001E87EE /* Lesson1.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 		A8A5488C2B00211B001E87EE /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5489F2B013EE9001E87EE /* Page.swift */,
 				A8A5488D2B00212F001E87EE /* BooleanQuestionView.swift */,
 				A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */,
 				A8A5488F2B004098001E87EE /* LessonView.swift */,
@@ -145,6 +153,9 @@
 			dependencies = (
 			);
 			name = HackTheChange2023;
+			packageProductDependencies = (
+				A8A548A42B01462A001E87EE /* SwiftyJSON */,
+			);
 			productName = HackTheChange2023;
 			productReference = A8A548742B000722001E87EE /* HackTheChange2023.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +184,9 @@
 				Base,
 			);
 			mainGroup = A8A5486B2B000722001E87EE;
+			packageReferences = (
+				A8A548A32B01462A001E87EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = A8A548752B000722001E87EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,6 +214,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A548902B004098001E87EE /* LessonView.swift in Sources */,
+				A8A548A72B01468F001E87EE /* Lesson1.swift in Sources */,
+				A8A548A02B013EE9001E87EE /* Page.swift in Sources */,
 				A8A548882B001C60001E87EE /* ProfileView.swift in Sources */,
 				A8A548952B0048EF001E87EE /* PointsView.swift in Sources */,
 				A8A5487A2B000722001E87EE /* ContentView.swift in Sources */,
@@ -422,6 +438,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A8A548A32B01462A001E87EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A8A548A42B01462A001E87EE /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8A548A32B01462A001E87EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A8A5486C2B000722001E87EE /* Project object */;
 }

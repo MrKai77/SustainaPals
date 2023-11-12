@@ -105,7 +105,8 @@ struct AdventureView: View {
 
                         Button(action: {
                             self.isLesson1Presented = true
-                        }, label: {
+                        },
+                               label: {
                             Image(.level1)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
