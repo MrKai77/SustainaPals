@@ -13,11 +13,13 @@ struct LessonView: View {
     @State private var image: Image
 
     @State private var hasBeenDismissed: Bool = false
+    @Binding var pagesLeft: Int
 
-    init(_ title: String, _ description: String, _ image: Image) {
+    init(_ title: String, _ description: String, _ image: Image, _ pagesLeft: Binding<Int>) {
         self.title = title
         self.description = description
         self.image = image
+        self._pagesLeft = pagesLeft
     }
 
     var body: some View {
@@ -51,6 +53,7 @@ struct LessonView: View {
                             withAnimation(.easeOut) {
                                 self.hasBeenDismissed = true
                             }
+                            self.pagesLeft -= 1
                         }, label: {
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundStyle(Color(.yesGreen))

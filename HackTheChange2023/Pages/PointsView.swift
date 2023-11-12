@@ -15,18 +15,6 @@ struct PointsView: View {
         self.amount = amount
     }
 
-    init(_ answers: [Bool], maxAmount: Int = 100) {
-        self.amount = 0
-        let length: Int = answers.count
-        let answerValue: Int = maxAmount / length
-
-        for answer in answers {
-            if answer == true {
-                self.amount += answerValue
-            }
-        }
-    }
-
     var body: some View {
         ZStack {
             Rectangle()

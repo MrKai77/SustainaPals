@@ -15,12 +15,14 @@ struct MultiOptionQuestionView: View {
     @State private var didAnswer: Bool = false
     @Binding private var wasCorrect: Bool
     @State private var hasBeenDismissed: Bool = false
+    @Binding var pagesLeft: Int
 
-    init(_ question: String, _ options: [String], _ answerIndex: Int, _ wasCorrect: Binding<Bool>) {
+    init(_ question: String, _ options: [String], _ answerIndex: Int, _ wasCorrect: Binding<Bool>, _ pagesLeft: Binding<Int>) {
         self.question = question
         self.options = options
         self.answerIndex = answerIndex
         self._wasCorrect = wasCorrect
+        self._pagesLeft = pagesLeft
     }
 
     var body: some View {
@@ -87,6 +89,7 @@ struct MultiOptionQuestionView: View {
                         withAnimation(.easeOut) {
                             self.hasBeenDismissed = true
                         }
+                        self.pagesLeft -= 1
                     }, label: {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(Color(.yesGreen))

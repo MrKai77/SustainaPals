@@ -18,11 +18,13 @@ struct BooleanQuestionView: View {
     @State private var didAnswer: Bool = false
     @Binding private var wasCorrect: Bool
     @State private var hasBeenDismissed: Bool = false
+    @Binding var pagesLeft: Int
 
-    init(_ question: String, _ answer: BooleanOption, _ wasCorrect: Binding<Bool>) {
+    init(_ question: String, _ answer: BooleanOption, _ wasCorrect: Binding<Bool>, _ pagesLeft: Binding<Int>) {
         self.question = question
         self.answer = answer
         self._wasCorrect = wasCorrect
+        self._pagesLeft = pagesLeft
     }
 
     var body: some View {
@@ -112,6 +114,7 @@ struct BooleanQuestionView: View {
                         withAnimation(.easeOut) {
                             self.hasBeenDismissed = true
                         }
+                        self.pagesLeft -= 1
                     }, label: {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(Color(.yesGreen))

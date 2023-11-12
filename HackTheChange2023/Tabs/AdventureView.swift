@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AdventureView: View {
+    @AppStorage("UserCompleted") var userCompleted: Int = 0
+
     @State var isLesson1Presented = false
     @State var isLesson2Presented = false
     @State var isLesson3Presented = false
@@ -41,6 +43,8 @@ struct AdventureView: View {
                             Lesson5View()
                                 .interactiveDismissDisabled()
                         })
+                        .opacity(self.userCompleted < 4 ? 0.5 : 1)
+                        .disabled(self.userCompleted < 4)
 
                         Spacer()
 
@@ -56,6 +60,8 @@ struct AdventureView: View {
                             Lesson4View()
                                 .interactiveDismissDisabled()
                         })
+                        .opacity(self.userCompleted < 3 ? 0.5 : 1)
+                        .disabled(self.userCompleted < 3)
 
                         Spacer()
 
@@ -71,6 +77,8 @@ struct AdventureView: View {
                             Lesson3View()
                                 .interactiveDismissDisabled()
                         })
+                        .opacity(self.userCompleted < 2 ? 0.5 : 1)
+                        .disabled(self.userCompleted < 2)
 
                         Spacer()
 
@@ -86,6 +94,8 @@ struct AdventureView: View {
                             Lesson2View()
                                 .interactiveDismissDisabled()
                         })
+                        .opacity(self.userCompleted < 1 ? 0.5 : 1)
+                        .disabled(self.userCompleted < 1)
 
                         Spacer()
 
@@ -105,6 +115,9 @@ struct AdventureView: View {
                 }
                 .padding(.vertical, 500)
             }
+        }
+        .onAppear {
+            self.userCompleted = 0
         }
     }
 }
