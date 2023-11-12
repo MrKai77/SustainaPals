@@ -15,7 +15,7 @@ struct CharacterView: View {
     @AppStorage("Shirt") var shirt: Shirt = .shirt2
     @AppStorage("Hair") var hair: Hair = .hair2
 
-    @AppStorage("SkinColor") var bodyColor: Color = Color(.yellow)
+    @AppStorage("BodyColor") var bodyColor: Color = Color(.yellow)
     @AppStorage("AccesoryColor") var accessoryColor: Color = Color(.pink)
     @AppStorage("HairColor") var hairColor: Color = Color(.brown)
     @AppStorage("ShirtColor") var shirtColor: Color = Color(.blue)

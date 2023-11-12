@@ -15,7 +15,7 @@ struct ProfileView: View {
     @AppStorage("Shirt") var shirt: Shirt = .shirt2
     @AppStorage("Hair") var hair: Hair = .hair2
 
-    @AppStorage("SkinColor") var bodyColor: Color = Color(.yellow)
+    @AppStorage("BodyColor") var bodyColor: Color = Color(.yellow)
     @AppStorage("AccesoryColor") var accessoryColor: Color = Color(.pink)
     @AppStorage("HairColor") var hairColor: Color = Color(.brown)
     @AppStorage("ShirtColor") var shirtColor: Color = Color(.blue)
@@ -54,17 +54,6 @@ struct ProfileView: View {
                     .shadow(color: .black.opacity(0.2), radius: 20)
                     .overlay {
                         VStack {
-                            ColorPicker("Skin Color:", selection: $bodyColor, supportsOpacity: false)
-//                                .font(.title2)
-//                                .fontWeight(.bold)
-//                                .padding(10)
-//                                .background(.sustainableBrown.opacity(0.5))
-//                                .clipShape(.rect(cornerRadius: 10))
-//                                .overlay {
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .strokeBorder(.sustainableBrown, lineWidth: 5)
-//                                }
-
                             HStack {
                                 Text("Mouth:")
                                     .font(.title2)
@@ -276,6 +265,21 @@ struct ProfileView: View {
                                             }
                                     })
                                 }
+                            }
+
+                            HStack {
+                                Text("Skin Color:")
+                                Spacer()
+                                ColorPicker("", selection: $bodyColor, supportsOpacity: false)
+                            }
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(10)
+                            .background(.sustainableBrown.opacity(0.5))
+                            .clipShape(.rect(cornerRadius: 10))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .strokeBorder(.sustainableBrown, lineWidth: 5)
                             }
                         }
                         .padding(10)
