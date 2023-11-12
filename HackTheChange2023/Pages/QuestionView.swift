@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @State var question: String = "Is it really?"
-    @State var options: [Option] = [.yes, .no]
-    @State var answer: Option = .no
+    @State private var question: String
+    @State private var options: [Option]
+    @State private var answer: Option
 
     @State private var draggedItem: String? = nil
     @State private var dropZoneActive: Bool = false
@@ -18,6 +18,12 @@ struct QuestionView: View {
     @State private var didAnswer: Bool = false
     @State private var wasCorrect: Bool = false
     @State private var hasBeenDismissed: Bool = false
+
+    init(_ question: String, _ answer: Option, _ options: [Option] = [.yes, .no]) {
+        self.question = question
+        self.options = options
+        self.answer = answer
+    }
 
     var body: some View {
         ZStack {
@@ -100,22 +106,20 @@ struct QuestionView: View {
                         Spacer()
                     }
 
-                    HStack {
-                        Button(action: {
-                            withAnimation(.easeOut) {
-                                self.hasBeenDismissed = true
+                    Button(action: {
+                        withAnimation(.easeOut) {
+                            self.hasBeenDismissed = true
+                        }
+                    }, label: {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(Color(.yesGreen))
+                            .overlay {
+                                Text("Next")
+                                    .foregroundStyle(.white)
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
                             }
-                        }, label: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundStyle(Color(.yesGreen))
-                                .overlay {
-                                    Text("Next")
-                                        .foregroundStyle(.white)
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
-                                }
-                        })
-                    }
+                    })
                     .frame(height: 50)
                 }
                 .padding(20)
@@ -162,8 +166,4 @@ enum Option: String, Identifiable {
         case .no: Color(.noRed)
         }
     }
-}
-
-#Preview {
-    QuestionView()
 }

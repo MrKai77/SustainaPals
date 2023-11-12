@@ -21,8 +21,18 @@ struct AdventureView: View {
                        .frame(width: 15)
                        .foregroundStyle(.black.opacity(0.5))
 
-                    VStack(spacing: 40) {
-                        NavigationLink(destination: QuestionView()) {
+                    VStack(spacing: 20) {
+
+                        NavigationLink(destination: EmptyView()) {
+                            Image(.level5)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 100)
+                        }
+
+                        Spacer()
+
+                        NavigationLink(destination: EmptyView()) {
                             Image(.level4)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -31,7 +41,7 @@ struct AdventureView: View {
 
                         Spacer()
 
-                        NavigationLink(destination: QuestionView()) {
+                        NavigationLink(destination: EmptyView()) {
                             Image(.level3)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -40,7 +50,7 @@ struct AdventureView: View {
 
                         Spacer()
 
-                        NavigationLink(destination: QuestionView()) {
+                        NavigationLink(destination: EmptyView()) {
                             Image(.level2)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -49,7 +59,7 @@ struct AdventureView: View {
 
                         Spacer()
 
-                        NavigationLink(destination: QuestionView()) {
+                        NavigationLink(destination: Lesson1View()) {
                             Image(.level1)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
