@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct MultiOptionQuestionView: View {
-    @State private var question: String = "AUWduigbf"
-    @State private var options: [String] = ["1", "2", "3", "4", "5"]
-    @State private var answerIndex: Int = 0
+    @State private var question: String
+    @State private var options: [String]
+    @State private var answerIndex: Int
 
     @State private var didAnswer: Bool = false
-    @State private var wasCorrect: Bool = false
+    @Binding private var wasCorrect: Bool
     @State private var hasBeenDismissed: Bool = false
+
+    init(_ question: String, _ options: [String], _ answerIndex: Int, _ wasCorrect: Binding<Bool>) {
+        self.question = question
+        self.options = options
+        self.answerIndex = answerIndex
+        self._wasCorrect = wasCorrect
+    }
 
     var body: some View {
         ZStack {
@@ -27,6 +34,8 @@ struct MultiOptionQuestionView: View {
 
                 Text(self.question)
                     .font(.title)
+                    .multilineTextAlignment(.center)
+                    .padding(20)
 
                 Spacer()
 
@@ -39,17 +48,16 @@ struct MultiOptionQuestionView: View {
                             self.wasCorrect = true
                         }
                     }, label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundStyle(Color(.yesGreen))
-                            .overlay {
-                                Text("\(option)")
-                                    .foregroundStyle(.white)
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                            }
-                            .frame(height: 50)
-                            .padding(.horizontal, 20)
+                        Text("\(option)")
+                            .foregroundStyle(.white)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(10)
                     })
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.yesGreen))
+                    .clipShape(.rect(cornerRadius: 10))
+                    .padding(.horizontal, 20)
                 }
 
                 if self.didAnswer {
@@ -115,8 +123,4 @@ struct MultiOptionQuestionView: View {
         )
         .allowsHitTesting(!self.hasBeenDismissed)
     }
-}
-
-#Preview {
-    MultiOptionQuestionView()
 }

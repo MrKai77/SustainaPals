@@ -9,10 +9,22 @@ import SwiftUI
 
 struct PointsView: View {
     @Environment(\.dismiss) var dismiss
-    let amount: Int
+    var amount: Int
 
     init(_ amount: Int) {
         self.amount = amount
+    }
+
+    init(_ answers: [Bool], maxAmount: Int = 100) {
+        self.amount = 0
+        let length: Int = answers.count
+        let answerValue: Int = maxAmount / length
+
+        for answer in answers {
+            if answer == true {
+                self.amount += answerValue
+            }
+        }
     }
 
     var body: some View {
@@ -29,27 +41,29 @@ struct PointsView: View {
                     .aspectRatio(contentMode: .fit)
                     .padding(80)
 
-                Text("You just earned \(amount) Leaf Coins!")
+                Text(self.amount == 0 ? "You didn't earn any Leaf Coins :(" : "You just earned \(amount) Leaf Coins!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
 
                 Spacer()
 
-                Button(action: {
+                if self.amount != 0 {
+                    Button(action: {
 
-                }, label: {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(Color(.yesGreen))
-                        .overlay {
-                            Text("Open Shop")
-                                .foregroundStyle(.white)
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                        }
-                })
-                .frame(height: 50)
-                .padding(.horizontal, 20)
+                    }, label: {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(Color(.yesGreen))
+                            .overlay {
+                                Text("Open Shop")
+                                    .foregroundStyle(.white)
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                            }
+                    })
+                    .frame(height: 50)
+                    .padding(.horizontal, 20)
+                }
 
                 Button(action: {
                     dismiss()

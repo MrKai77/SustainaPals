@@ -9,20 +9,20 @@ import SwiftUI
 
 struct BooleanQuestionView: View {
     @State private var question: String
-    @State private var options: [BooleanOption]
+    @State private var options: [BooleanOption] = [.yes, .no]
     @State private var answer: BooleanOption
 
     @State private var draggedItem: String? = nil
     @State private var dropZoneActive: Bool = false
 
     @State private var didAnswer: Bool = false
-    @State private var wasCorrect: Bool = false
+    @Binding private var wasCorrect: Bool
     @State private var hasBeenDismissed: Bool = false
 
-    init(_ question: String, _ answer: BooleanOption, _ options: [BooleanOption] = [.yes, .no]) {
+    init(_ question: String, _ answer: BooleanOption, _ wasCorrect: Binding<Bool>) {
         self.question = question
-        self.options = options
         self.answer = answer
+        self._wasCorrect = wasCorrect
     }
 
     var body: some View {
@@ -36,6 +36,7 @@ struct BooleanQuestionView: View {
 
                 Text(self.question)
                     .font(.title)
+                    .multilineTextAlignment(.center)
                     .padding(5)
                     .onDrag {
                         let itemProvider = NSItemProvider(object: self.question as NSItemProviderWriting)

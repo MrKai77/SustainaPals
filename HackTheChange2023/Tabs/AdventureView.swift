@@ -37,7 +37,7 @@ struct AdventureView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
                         })
-                        .sheet(isPresented: $isLesson2Presented, content: {
+                        .sheet(isPresented: $isLesson5Presented, content: {
                             Lesson5View()
                                 .interactiveDismissDisabled()
                         })
@@ -67,7 +67,7 @@ struct AdventureView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
                         })
-                        .sheet(isPresented: $isLesson2Presented, content: {
+                        .sheet(isPresented: $isLesson3Presented, content: {
                             Lesson3View()
                                 .interactiveDismissDisabled()
                         })
