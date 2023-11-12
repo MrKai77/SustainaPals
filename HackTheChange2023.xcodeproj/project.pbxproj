@@ -14,10 +14,11 @@
 		A8A548862B001BE3001E87EE /* AdventureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548852B001BE3001E87EE /* AdventureView.swift */; };
 		A8A548882B001C60001E87EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548872B001C60001E87EE /* ProfileView.swift */; };
 		A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548892B001CB9001E87EE /* ShopView.swift */; };
-		A8A5488E2B00212F001E87EE /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5488D2B00212F001E87EE /* QuestionView.swift */; };
+		A8A5488E2B00212F001E87EE /* BooleanQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5488D2B00212F001E87EE /* BooleanQuestionView.swift */; };
 		A8A548902B004098001E87EE /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5488F2B004098001E87EE /* LessonView.swift */; };
 		A8A548922B0043C6001E87EE /* LessonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548912B0043C6001E87EE /* LessonViews.swift */; };
 		A8A548952B0048EF001E87EE /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548942B0048EF001E87EE /* PointsView.swift */; };
+		A8A548992B0087A0001E87EE /* MultiOptionQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +30,11 @@
 		A8A548852B001BE3001E87EE /* AdventureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureView.swift; sourceTree = "<group>"; };
 		A8A548872B001C60001E87EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A8A548892B001CB9001E87EE /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
-		A8A5488D2B00212F001E87EE /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		A8A5488D2B00212F001E87EE /* BooleanQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanQuestionView.swift; sourceTree = "<group>"; };
 		A8A5488F2B004098001E87EE /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		A8A548912B0043C6001E87EE /* LessonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViews.swift; sourceTree = "<group>"; };
 		A8A548942B0048EF001E87EE /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
+		A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiOptionQuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,8 @@
 		A8A5488C2B00211B001E87EE /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				A8A5488D2B00212F001E87EE /* QuestionView.swift */,
+				A8A5488D2B00212F001E87EE /* BooleanQuestionView.swift */,
+				A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */,
 				A8A5488F2B004098001E87EE /* LessonView.swift */,
 				A8A548942B0048EF001E87EE /* PointsView.swift */,
 			);
@@ -189,8 +192,9 @@
 				A8A548782B000722001E87EE /* HackTheChange2023App.swift in Sources */,
 				A8A548922B0043C6001E87EE /* LessonViews.swift in Sources */,
 				A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */,
-				A8A5488E2B00212F001E87EE /* QuestionView.swift in Sources */,
+				A8A5488E2B00212F001E87EE /* BooleanQuestionView.swift in Sources */,
 				A8A548862B001BE3001E87EE /* AdventureView.swift in Sources */,
+				A8A548992B0087A0001E87EE /* MultiOptionQuestionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

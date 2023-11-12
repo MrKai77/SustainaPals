@@ -1,5 +1,5 @@
 //
-//  QuestionView.swift
+//  BooleanQuestionView.swift
 //  HackTheChange2023
 //
 //  Created by Kai Azim on 2023-11-11.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct QuestionView: View {
+struct BooleanQuestionView: View {
     @State private var question: String
-    @State private var options: [Option]
-    @State private var answer: Option
+    @State private var options: [BooleanOption]
+    @State private var answer: BooleanOption
 
     @State private var draggedItem: String? = nil
     @State private var dropZoneActive: Bool = false
@@ -19,7 +19,7 @@ struct QuestionView: View {
     @State private var wasCorrect: Bool = false
     @State private var hasBeenDismissed: Bool = false
 
-    init(_ question: String, _ answer: Option, _ options: [Option] = [.yes, .no]) {
+    init(_ question: String, _ answer: BooleanOption, _ options: [BooleanOption] = [.yes, .no]) {
         self.question = question
         self.options = options
         self.answer = answer
@@ -149,7 +149,7 @@ struct QuestionView: View {
     }
 }
 
-enum Option: String, Identifiable {
+enum BooleanOption: String, Identifiable {
     var id: Self { self }
 
     case yes = "Yes"

@@ -11,9 +11,10 @@ struct Lesson1View: View {
     var body: some View {
         ZStack {
             PointsView(100)
-            QuestionView("Is Recycling a good thing?", .yes)
+            BooleanQuestionView("Is Recycling a good thing?", .yes)
             LessonView("Recycling", "You ready?", Image(systemName: "faceid"))
             LessonView("Recycling", "Very cool.", Image(systemName: "faceid"))
+            MultiOptionQuestionView()
         }
     }
 }
@@ -22,7 +23,7 @@ struct Lesson2View: View {
     var body: some View {
         ZStack {
             PointsView(100)
-            QuestionView("Is Recycling a good thing?", .yes)
+            BooleanQuestionView("Is Recycling a good thing?", .yes)
             LessonView("Recycling", "You ready?", Image(systemName: "faceid"))
             LessonView("Recycling", "Very cool.", Image(systemName: "faceid"))
         }
@@ -33,7 +34,7 @@ struct Lesson3View: View {
     var body: some View {
         ZStack {
             PointsView(100)
-            QuestionView("Is Recycling a good thing?", .yes)
+            BooleanQuestionView("Is Recycling a good thing?", .yes)
             LessonView("Recycling", "You ready?", Image(systemName: "faceid"))
             LessonView("Recycling", "Very cool.", Image(systemName: "faceid"))
         }
@@ -44,7 +45,7 @@ struct Lesson4View: View {
     var body: some View {
         ZStack {
             PointsView(100)
-            QuestionView("Is Recycling a good thing?", .yes)
+            BooleanQuestionView("Is Recycling a good thing?", .yes)
             LessonView("Recycling", "You ready?", Image(systemName: "faceid"))
             LessonView("Recycling", "Very cool.", Image(systemName: "faceid"))
         }
@@ -55,7 +56,7 @@ struct Lesson5View: View {
     var body: some View {
         ZStack {
             PointsView(100)
-            QuestionView("Is Recycling a good thing?", .yes)
+            BooleanQuestionView("Is Recycling a good thing?", .yes)
             LessonView("Recycling", "You ready?", Image(systemName: "faceid"))
             LessonView("Recycling", "Very cool.", Image(systemName: "faceid"))
         }
