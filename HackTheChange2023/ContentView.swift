@@ -13,27 +13,32 @@ struct ContentView: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
 
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(named: "Background")
+        UITabBar.appearance().backgroundColor = UIColor(named: "sustainableGreen")
     }
 
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(height: 50)
-                    .overlay {
-                        HStack {
-                            Label("\(leafCoins)", systemImage: "leaf.circle")
-                                .foregroundStyle(.yellow)
-                                .font(.title)
-                                .fontWeight(.bold)
+                if currentTab != 3 {
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(height: 50)
+                        .overlay {
+                            HStack {
+                                Label("\(leafCoins)", systemImage: "leaf.circle")
+                                    .foregroundStyle(.sustainableWhite)
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                            }
                         }
-                    }
-
-                    .padding([.bottom, .horizontal], 20)
-                    .foregroundStyle(Color(.yesGreen))
-                    .shadow(radius: 10)
-                    .background(Color(.background))
+                        .foregroundStyle(.sustainableBrown.opacity(0.5))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 15)
+                                .strokeBorder(.sustainableBrown, lineWidth: 5)
+                        }
+                        .padding([.bottom, .horizontal], 20)
+                        .shadow(color: .black.opacity(0.2), radius: 10)
+                        .background(Color(.sustainableGreen))
+                }
 
                 TabView(selection: $currentTab) {
                     ShopView()
@@ -54,6 +59,15 @@ struct ContentView: View {
                         }
                         .tag(1)
 
+                    LeaderboardView()
+                        .tabItem {
+                            Label(
+                                "Leaderboard",
+                                systemImage: "trophy"
+                            )
+                        }
+                        .tag(2)
+
                     ProfileView()
                         .tabItem {
                             Label(
@@ -61,7 +75,7 @@ struct ContentView: View {
                                 systemImage: "person.crop.circle"
                             )
                         }
-                        .tag(2)
+                        .tag(3)
                 }
             }
         }

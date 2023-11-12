@@ -19,6 +19,8 @@
 		A8A548922B0043C6001E87EE /* LessonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548912B0043C6001E87EE /* LessonViews.swift */; };
 		A8A548952B0048EF001E87EE /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548942B0048EF001E87EE /* PointsView.swift */; };
 		A8A548992B0087A0001E87EE /* MultiOptionQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */; };
+		A8A5489C2B00BA7A001E87EE /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5489B2B00BA7A001E87EE /* LeaderboardView.swift */; };
+		A8A5489E2B00BE20001E87EE /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5489D2B00BE20001E87EE /* CharacterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		A8A548912B0043C6001E87EE /* LessonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViews.swift; sourceTree = "<group>"; };
 		A8A548942B0048EF001E87EE /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		A8A548982B0087A0001E87EE /* MultiOptionQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiOptionQuestionView.swift; sourceTree = "<group>"; };
+		A8A5489B2B00BA7A001E87EE /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		A8A5489D2B00BE20001E87EE /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +73,8 @@
 			children = (
 				A8A548772B000722001E87EE /* HackTheChange2023App.swift */,
 				A8A548792B000722001E87EE /* ContentView.swift */,
+				A8A5489D2B00BE20001E87EE /* CharacterView.swift */,
 				A8A5488B2B002110001E87EE /* Tabs */,
-				A8A548932B0043CC001E87EE /* Lessons */,
-				A8A5488C2B00211B001E87EE /* Pages */,
 				A8A5487B2B000723001E87EE /* Assets.xcassets */,
 				A8A5487D2B000723001E87EE /* Preview Content */,
 			);
@@ -89,8 +92,10 @@
 		A8A5488B2B002110001E87EE /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				A8A548892B001CB9001E87EE /* ShopView.swift */,
 				A8A548852B001BE3001E87EE /* AdventureView.swift */,
+				A8A5489A2B00B851001E87EE /* Adventure */,
+				A8A548892B001CB9001E87EE /* ShopView.swift */,
+				A8A5489B2B00BA7A001E87EE /* LeaderboardView.swift */,
 				A8A548872B001C60001E87EE /* ProfileView.swift */,
 			);
 			path = Tabs;
@@ -113,6 +118,15 @@
 				A8A548912B0043C6001E87EE /* LessonViews.swift */,
 			);
 			path = Lessons;
+			sourceTree = "<group>";
+		};
+		A8A5489A2B00B851001E87EE /* Adventure */ = {
+			isa = PBXGroup;
+			children = (
+				A8A548932B0043CC001E87EE /* Lessons */,
+				A8A5488C2B00211B001E87EE /* Pages */,
+			);
+			path = Adventure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +205,9 @@
 				A8A5487A2B000722001E87EE /* ContentView.swift in Sources */,
 				A8A548782B000722001E87EE /* HackTheChange2023App.swift in Sources */,
 				A8A548922B0043C6001E87EE /* LessonViews.swift in Sources */,
+				A8A5489E2B00BE20001E87EE /* CharacterView.swift in Sources */,
 				A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */,
+				A8A5489C2B00BA7A001E87EE /* LeaderboardView.swift in Sources */,
 				A8A5488E2B00212F001E87EE /* BooleanQuestionView.swift in Sources */,
 				A8A548862B001BE3001E87EE /* AdventureView.swift in Sources */,
 				A8A548992B0087A0001E87EE /* MultiOptionQuestionView.swift in Sources */,
@@ -331,7 +347,7 @@
 				DEVELOPMENT_TEAM = 8P53VAPX2H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Sustainapal;
+				INFOPLIST_KEY_CFBundleDisplayName = Sustainapals;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -363,7 +379,7 @@
 				DEVELOPMENT_TEAM = 8P53VAPX2H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Sustainapal;
+				INFOPLIST_KEY_CFBundleDisplayName = Sustainapals;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

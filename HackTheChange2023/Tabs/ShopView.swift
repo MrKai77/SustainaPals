@@ -12,7 +12,7 @@ struct ShopView: View {
         NavigationView {
             ZStack {
                 Rectangle()
-                    .foregroundStyle(Color(.background))
+                    .foregroundStyle(Color(.sustainableGreen))
                     .ignoresSafeArea()
 
                 NavigationLink(destination: ProfileView()) {
