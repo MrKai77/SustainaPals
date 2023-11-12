@@ -29,7 +29,7 @@ struct AdventureView: View {
                        .frame(width: 15)
                        .foregroundStyle(.black.opacity(0.5))
 
-                    VStack(spacing: 20) {
+                    VStack(spacing: 0) {
 
                         Button(action: {
                             self.isLesson5Presented = true
@@ -113,11 +113,8 @@ struct AdventureView: View {
                         })
                     }
                 }
-                .padding(.vertical, 500)
+                .padding(.bottom, 20)
             }
-        }
-        .onAppear {
-            self.userCompleted = 0
         }
     }
 }

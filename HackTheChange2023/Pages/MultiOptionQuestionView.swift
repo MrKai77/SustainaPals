@@ -48,6 +48,8 @@ struct MultiOptionQuestionView: View {
                         }
                         if index == self.answerIndex {
                             self.wasCorrect = true
+                        } else {
+                            self.wasCorrect = false
                         }
                     }, label: {
                         Text("\(option)")

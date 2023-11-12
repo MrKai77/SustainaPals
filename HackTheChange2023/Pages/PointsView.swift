@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PointsView: View {
+    @AppStorage("CurrentTab") var currentTab: Int = 1
     @Environment(\.dismiss) var dismiss
     var amount: Int
 
@@ -24,10 +25,17 @@ struct PointsView: View {
             VStack {
                 Spacer()
 
-                Image("custom.leaf.circle.badge.arrow.up")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(80)
+                if self.amount == 0 {
+                    Image(systemName: "leaf.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(80)
+                } else {
+                    Image("custom.leaf.circle.badge.arrow.up")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(80)
+                }
 
                 Text(self.amount == 0 ? "You didn't earn any Leaf Coins :(" : "You just earned \(amount) Leaf Coins!")
                     .font(.largeTitle)
@@ -38,7 +46,8 @@ struct PointsView: View {
 
                 if self.amount != 0 {
                     Button(action: {
-
+                        self.currentTab = 0
+                        dismiss()
                     }, label: {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(Color(.yesGreen))

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Lesson1View: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
+    @AppStorage("LeafCoins") var leafCoins: Int = 0
 
     @State var question1Correct: Bool = false
     @State var pagesLeft: Int = 4
@@ -43,7 +44,8 @@ struct Lesson1View: View {
         }
         .onChange(of: self.pagesLeft) {
             if self.pagesLeft == 0 && question1Correct {
-                self.userCompleted += 1
+                self.userCompleted = 1
+                self.leafCoins += 100
             }
         }
     }
@@ -51,6 +53,7 @@ struct Lesson1View: View {
 
 struct Lesson2View: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
+    @AppStorage("LeafCoins") var leafCoins: Int = 0
 
     @State var question1Correct: Bool = false
     @State var pagesLeft: Int = 4
@@ -85,7 +88,8 @@ struct Lesson2View: View {
         }
         .onChange(of: self.pagesLeft) {
             if self.pagesLeft == 0 && question1Correct {
-                self.userCompleted += 1
+                self.userCompleted = 2
+                self.leafCoins += 100
             }
         }
     }
@@ -93,6 +97,7 @@ struct Lesson2View: View {
 
 struct Lesson3View: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
+    @AppStorage("LeafCoins") var leafCoins: Int = 0
 
     @State var question1Correct: Bool = false
     @State var pagesLeft: Int = 3
@@ -121,7 +126,8 @@ struct Lesson3View: View {
         }
         .onChange(of: self.pagesLeft) {
             if self.pagesLeft == 0 && question1Correct {
-                self.userCompleted += 1
+                self.userCompleted = 3
+                self.leafCoins += 100
             }
         }
     }
@@ -129,6 +135,7 @@ struct Lesson3View: View {
 
 struct Lesson4View: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
+    @AppStorage("LeafCoins") var leafCoins: Int = 0
 
     @State var question1Correct: Bool = false
     @State var pagesLeft: Int = 4
@@ -163,7 +170,8 @@ struct Lesson4View: View {
         }
         .onChange(of: self.pagesLeft) {
             if self.pagesLeft == 0 && question1Correct {
-                self.userCompleted += 1
+                self.userCompleted = 4
+                self.leafCoins += 100
             }
         }
     }
@@ -171,6 +179,7 @@ struct Lesson4View: View {
 
 struct Lesson5View: View {
     @AppStorage("UserCompleted") var userCompleted: Int = 0
+    @AppStorage("LeafCoins") var leafCoins: Int = 0
 
     @State var question1Correct: Bool = false
     @State var question2Correct: Bool = false
@@ -180,7 +189,7 @@ struct Lesson5View: View {
 
     var body: some View {
         ZStack {
-            PointsView(Int(calculatePercentage(answers: [question1Correct, question2Correct, question3Correct, question4Correct])) * 400)
+            PointsView(Int(calculatePercentage(answers: [question1Correct, question2Correct, question3Correct, question4Correct]) * 400))
             MultiOptionQuestionView(
                 "What should we do to take care of our planet and reduce the giant sandwich-like landfill?",
                 ["Keep throwing everything away in the landfill", "Only throw away things that break easily", "Recycle, compost and donate when we can", "Build more landfills for extra space"],
@@ -211,8 +220,12 @@ struct Lesson5View: View {
             )
         }
         .onChange(of: self.pagesLeft) {
-            if self.pagesLeft == 0 && calculatePercentage(answers: [question1Correct, question2Correct, question3Correct, question4Correct]) == 1 {
-                self.userCompleted += 1
+            if self.pagesLeft == 0 {
+                self.leafCoins += Int(calculatePercentage(answers: [question1Correct, question2Correct, question3Correct, question4Correct]) * 400)
+
+                if calculatePercentage(answers: [question1Correct, question2Correct, question3Correct, question4Correct]) == 1 {
+                    self.userCompleted = 5
+                }
             }
         }
     }
@@ -220,7 +233,7 @@ struct Lesson5View: View {
 
 fileprivate func calculatePercentage(answers: [Bool]) -> Double {
     let count = answers.count
-    var correct = 0
+    var correct = 1
 
     for answer in answers {
         if answer == true {
