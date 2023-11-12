@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct AdventureView: View {
+    @State var isLesson1Presented = false
+    @State var isLesson2Presented = false
+    @State var isLesson3Presented = false
+    @State var isLesson4Presented = false
+    @State var isLesson5Presented = false
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,48 +29,78 @@ struct AdventureView: View {
 
                     VStack(spacing: 20) {
 
-                        NavigationLink(destination: EmptyView()) {
+                        Button(action: {
+                            self.isLesson5Presented = true
+                        }, label: {
                             Image(.level5)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
-                        }
+                        })
+                        .sheet(isPresented: $isLesson2Presented, content: {
+                            Lesson5View()
+                                .interactiveDismissDisabled()
+                        })
 
                         Spacer()
 
-                        NavigationLink(destination: EmptyView()) {
+                        Button(action: {
+                            self.isLesson4Presented = true
+                        }, label: {
                             Image(.level4)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
-                        }
+                        })
+                        .sheet(isPresented: $isLesson4Presented, content: {
+                            Lesson4View()
+                                .interactiveDismissDisabled()
+                        })
 
                         Spacer()
 
-                        NavigationLink(destination: EmptyView()) {
+                        Button(action: {
+                            self.isLesson3Presented = true
+                        }, label: {
                             Image(.level3)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
-                        }
+                        })
+                        .sheet(isPresented: $isLesson2Presented, content: {
+                            Lesson3View()
+                                .interactiveDismissDisabled()
+                        })
 
                         Spacer()
 
-                        NavigationLink(destination: EmptyView()) {
+                        Button(action: {
+                            self.isLesson2Presented = true
+                        }, label: {
                             Image(.level2)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
-                        }
+                        })
+                        .sheet(isPresented: $isLesson2Presented, content: {
+                            Lesson2View()
+                                .interactiveDismissDisabled()
+                        })
 
                         Spacer()
 
-                        NavigationLink(destination: Lesson1View()) {
+                        Button(action: {
+                            self.isLesson1Presented = true
+                        }, label: {
                             Image(.level1)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 100)
-                        }
+                        })
+                        .sheet(isPresented: $isLesson1Presented, content: {
+                            Lesson1View()
+                                .interactiveDismissDisabled()
+                        })
                     }
                 }
                 .padding(.vertical, 500)

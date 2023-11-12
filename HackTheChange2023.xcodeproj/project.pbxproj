@@ -16,7 +16,7 @@
 		A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548892B001CB9001E87EE /* ShopView.swift */; };
 		A8A5488E2B00212F001E87EE /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5488D2B00212F001E87EE /* QuestionView.swift */; };
 		A8A548902B004098001E87EE /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5488F2B004098001E87EE /* LessonView.swift */; };
-		A8A548922B0043C6001E87EE /* Lesson1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548912B0043C6001E87EE /* Lesson1View.swift */; };
+		A8A548922B0043C6001E87EE /* LessonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548912B0043C6001E87EE /* LessonViews.swift */; };
 		A8A548952B0048EF001E87EE /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A548942B0048EF001E87EE /* PointsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		A8A548892B001CB9001E87EE /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		A8A5488D2B00212F001E87EE /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		A8A5488F2B004098001E87EE /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
-		A8A548912B0043C6001E87EE /* Lesson1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson1View.swift; sourceTree = "<group>"; };
+		A8A548912B0043C6001E87EE /* LessonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViews.swift; sourceTree = "<group>"; };
 		A8A548942B0048EF001E87EE /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +107,7 @@
 		A8A548932B0043CC001E87EE /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
-				A8A548912B0043C6001E87EE /* Lesson1View.swift */,
+				A8A548912B0043C6001E87EE /* LessonViews.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 				A8A548952B0048EF001E87EE /* PointsView.swift in Sources */,
 				A8A5487A2B000722001E87EE /* ContentView.swift in Sources */,
 				A8A548782B000722001E87EE /* HackTheChange2023App.swift in Sources */,
-				A8A548922B0043C6001E87EE /* Lesson1View.swift in Sources */,
+				A8A548922B0043C6001E87EE /* LessonViews.swift in Sources */,
 				A8A5488A2B001CB9001E87EE /* ShopView.swift in Sources */,
 				A8A5488E2B00212F001E87EE /* QuestionView.swift in Sources */,
 				A8A548862B001BE3001E87EE /* AdventureView.swift in Sources */,

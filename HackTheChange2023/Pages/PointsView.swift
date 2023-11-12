@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PointsView: View {
-
-    @State var amount: Int
+    @Environment(\.dismiss) var dismiss
+    let amount: Int
 
     init(_ amount: Int) {
         self.amount = amount
@@ -52,7 +52,7 @@ struct PointsView: View {
                 .padding(.horizontal, 20)
 
                 Button(action: {
-
+                    dismiss()
                 }, label: {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundStyle(Color(.yesGreen))

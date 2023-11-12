@@ -36,6 +36,7 @@ struct QuestionView: View {
 
                 Text(self.question)
                     .font(.title)
+                    .padding(5)
                     .onDrag {
                         let itemProvider = NSItemProvider(object: self.question as NSItemProviderWriting)
                         return itemProvider
@@ -144,6 +145,7 @@ struct QuestionView: View {
             axis: (x: 0, y: 1, z: 0),
             anchor: .leading
         )
+        .allowsHitTesting(!self.hasBeenDismissed)
     }
 }
 
